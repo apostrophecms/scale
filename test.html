@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Scale Example</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="file-input" />
+    <img id="img-element" class="hidden" />
+    <script type="module">
+      // Relative URL because we're testing directly in this folder.
+      // Your import statement should import from '@apostrophecms/scale'
+      import scale from './index.js';
+      const input = document.querySelector('#file-input');
+      input.addEventListener('change', async e => {
+        let file = input.files[0];
+
+        // Limit the maximum size
+        file = await scale(file, {
+          // Very small so we can test the outcome
+          maxWidth: 200,
+          maxHeight: 200
+        });
+
+        const img = document.querySelector('#img-element');
+        img.classList.remove('hidden');
+        img.setAttribute('src', URL.createObjectURL(file));
+
+        // Upload as multipart/form-data just like always
+        const body = new FormData();
+        body.append('file', file);
+        // You implement /upload in the server side
+        // framework of your choice
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body
+        });
+      });
+    </script>
+  </body>
+</html>

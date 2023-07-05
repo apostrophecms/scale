@@ -1,0 +1,26 @@
+{
+  "name": "@apostrophecms/scale",
+  "version": "1.0.0",
+  "description": "Scale an image file in the browser before uploading it to your server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apostrophecms/scale.git"
+  },
+  "keywords": [
+    "scale",
+    "image",
+    "image",
+    "scale"
+  ],
+  "type": "module",
+  "author": "Apostrophe Technologies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apostrophecms/scale/issues"
+  },
+  "homepage": "https://github.com/apostrophecms/scale#readme"
+}
